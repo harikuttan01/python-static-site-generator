@@ -10,10 +10,7 @@ class Parser:
     def valid_extension(self,extension):
         return True if extension in self.extensions else False
     
-    def parse(self,source,dest,path):
-        self.source = Path(source)
-        self.dest = Path(dest)
-        self.path = Path(path)
+    def parse(self,source : Path,dest : Path,path : Path):
         raise NotImplementedError
 
     def read(self,path):
