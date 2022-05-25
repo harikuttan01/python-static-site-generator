@@ -5,21 +5,22 @@ from pathlib import Path
 class Parser:
     
     def __init__(self):
-        self.extensions = [str]
+        self.extensions : List[str] = []
 
     def valid_extension(self,extension):
         return True if extension in self.extensions else False
     
-    def parse(self,source,dest):
+    def parse(self,source,dest,path):
         self.source = Path(source)
         self.dest = Path(dest)
-
+        self.path = Path(path)
         raise NotImplementedError
 
     def read(self,path):
         with open(path,'r') as file:
             f = file.read()
             return f
+    
     def write(self,path,dest,content,ext = ".html"):
         full_path = self.dest / path.with_suffix(ext).name
         with open(full_path,'w') as file:
